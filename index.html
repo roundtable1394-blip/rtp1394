@@ -353,6 +353,92 @@
     .hero{ padding:56px 0 72px; }
 
   }
+
+  /* ===== careers page ===== */
+  [hidden]{ display:none !important; }
+  nav.links a.active::after{ width:100%; }
+  .careers-hero{
+    background:
+      radial-gradient(ellipse 700px 340px at 85% 0%, rgba(201,162,39,0.2), transparent 60%),
+      linear-gradient(180deg, var(--wine-dark), var(--wine-deep));
+    color:var(--cream-2); padding:88px 0 80px; position:relative; overflow:hidden;
+  }
+  .careers-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:1px; background:linear-gradient(90deg, transparent, var(--gold), transparent); opacity:0.55; }
+  .careers-hero h1{ color:#fff; font-size:clamp(2.4rem,5vw,3.6rem); line-height:1.05; margin:12px 0 18px; }
+  .careers-hero h1 em{ color:var(--gold-light); font-style:italic; }
+  .careers-hero p{ color:rgba(251,246,236,0.78); font-size:1.08rem; max-width:560px; margin-bottom:30px; }
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(228,199,103,0.25); border:1px solid rgba(228,199,103,0.3); border-radius:6px; overflow:hidden; margin-top:48px; }
+  .step{ background:rgba(44,12,18,0.55); padding:26px 26px; }
+  .step .roman{ font-family:'Fraunces',serif; color:var(--gold); letter-spacing:0.1em; display:block; margin-bottom:8px; }
+  .step h3{ color:#fff; font-size:1.08rem; margin-bottom:6px; }
+  .step p{ color:rgba(251,246,236,0.68); font-size:0.9rem; margin:0; }
+
+  .app-wrap{ background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:56px 54px; box-shadow:var(--shadow); }
+  .app-intro{ display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-bottom:36px; padding-bottom:22px; border-bottom:1px solid var(--line); }
+  .app-intro h2{ font-size:clamp(1.7rem,3vw,2.2rem); margin-top:6px; }
+  .req-note{ font-size:0.82rem; color:#665a53; }
+  .req{ color:var(--wine); font-weight:700; }
+  .app-form fieldset{ border:none; margin:0 0 44px; }
+  .app-form legend{
+    font-family:'Fraunces',serif; font-weight:600; font-size:1.25rem; color:var(--wine);
+    width:100%; padding-bottom:10px; margin-bottom:22px; border-bottom:2px solid var(--gold);
+  }
+  .app-form legend .ltr{ color:var(--gold); margin-right:8px; }
+  .f-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:18px 20px; }
+  .span-1{ grid-column:span 1; } .span-2{ grid-column:span 2; } .span-3{ grid-column:span 3; }
+  .span-4{ grid-column:span 4; } .span-6{ grid-column:span 6; }
+  .field{ display:flex; flex-direction:column; gap:7px; min-width:0; }
+  .field > label, .field .q{ font-size:0.86rem; font-weight:600; color:var(--charcoal); line-height:1.35; }
+  .field .hint{ font-size:0.78rem; color:#665a53; font-weight:400; }
+  .app-form input[type=text], .app-form input[type=email], .app-form input[type=tel],
+  .app-form input[type=number], .app-form input[type=date], .app-form textarea{
+    width:100%; font:inherit; font-size:0.95rem; color:var(--ink);
+    background:var(--cream-2); border:1px solid rgba(36,28,26,0.2); border-radius:4px; padding:11px 12px;
+    transition:border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .app-form textarea{ min-height:96px; resize:vertical; }
+  .app-form input:focus, .app-form textarea:focus{ outline:none; border-color:var(--wine); background:#fff; box-shadow:0 0 0 3px rgba(107,31,42,0.14); }
+  .app-form .was-validated :invalid{ border-color:#b3261e; }
+  .choice-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{ position:relative; }
+  .chip input{ position:absolute; opacity:0; width:1px; height:1px; }
+  .chip span{
+    display:inline-flex; align-items:center; justify-content:center; min-width:58px; padding:9px 16px;
+    border:1px solid rgba(36,28,26,0.2); border-radius:3px; background:var(--cream-2);
+    font-size:0.88rem; font-weight:500; cursor:pointer; user-select:none; transition:all 0.15s ease;
+  }
+  .chip input:checked + span{ background:var(--wine); border-color:var(--wine); color:#fff; }
+  .chip input:focus-visible + span{ box-shadow:0 0 0 3px rgba(107,31,42,0.25); }
+  .choice-row.invalid .chip span{ border-color:#b3261e; }
+  .job{ grid-column:span 6; border:1px solid var(--line); border-radius:6px; padding:22px 22px 24px; background:var(--cream-2); }
+  .job .f-grid{ gap:16px 18px; }
+  .job input[type=text]{ background:#fff; }
+  .job-h{ font-family:'Work Sans',sans-serif; font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--wine); font-weight:600; margin-bottom:14px; }
+  .legal-note{ grid-column:span 6; font-size:0.82rem; color:#665a53; font-style:italic; background:var(--cream-2); border-left:3px solid var(--gold); padding:12px 16px; border-radius:0 4px 4px 0; }
+  .app-actions{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; padding-top:26px; border-top:1px solid var(--line); }
+  .form-error{ color:#b3261e; font-size:0.88rem; font-weight:500; }
+  .app-done{ text-align:center; padding:30px 10px; }
+  .app-done h2{ font-size:clamp(1.8rem,3vw,2.3rem); margin:10px 0 14px; }
+  .app-done p{ color:#5b4f49; max-width:520px; margin:0 auto 26px; }
+  .app-done .hero-ctas{ justify-content:center; margin-bottom:0; }
+  #printSummary{ display:none; }
+  @media (max-width:1000px){ .app-wrap{ padding:40px 28px; } .steps{ grid-template-columns:1fr; } }
+  @media (max-width:700px){
+    .f-grid > .field, .f-grid > .job{ grid-column:span 6; }
+    .app-wrap{ padding:32px 18px; }
+    .job{ padding:18px 14px; }
+  }
+  @media print{
+    body{ background:#fff; }
+    body > *:not(#printSummary){ display:none !important; }
+    #printSummary{ display:block !important; font-family:'Work Sans',sans-serif; color:#000; font-size:11pt; }
+    #printSummary h1{ font-size:18pt; margin-bottom:4pt; }
+    #printSummary h2{ font-size:12.5pt; margin:14pt 0 6pt; border-bottom:1.5pt solid #000; padding-bottom:3pt; }
+    #printSummary h3{ font-size:10.5pt; margin:8pt 0 4pt; }
+    #printSummary table{ width:100%; border-collapse:collapse; }
+    #printSummary td{ border:0.75pt solid #999; padding:4pt 6pt; vertical-align:top; }
+    #printSummary td:first-child{ width:42%; font-weight:600; }
+  }
 </style>
 </head>
 <body>
@@ -370,6 +456,7 @@
       <a href="#pizzas">Pizzas</a>
       <a href="#menu">Full Menu</a>
       <a href="#visit">Hours &amp; Location</a>
+      <a href="#careers">Careers</a>
     </nav>
     <div class="nav-cta">
       <a class="phone-link" href="tel:+19498598888">(949) 859-8888</a>
@@ -385,6 +472,7 @@
     <a href="#pizzas">Pizzas</a>
     <a href="#menu">Full Menu</a>
     <a href="#visit">Hours &amp; Location</a>
+    <a href="#careers">Careers</a>
     <a href="tel:+19498598888">Call (949) 859-8888</a>
   </div>
 </header>
@@ -732,6 +820,197 @@
 
 </main>
 
+<!-- ===== CAREERS PAGE (shown at #careers) ===== -->
+<main id="careers" hidden>
+
+  <section class="careers-hero">
+    <div class="container">
+      <span class="eyebrow on-dark">Careers · Lake Forest</span>
+      <h1>Join the <em>Round Table.</em></h1>
+      <p>We're looking for friendly, dependable people to make pizza, run the counter, and keep the buffet stocked on Lambert Street. Fill out the application below — it only takes a few minutes.</p>
+      <a class="btn btn-gold btn-lg" href="#apply">Start Your Application</a>
+      <div class="steps">
+        <div class="step"><span class="roman">I.</span><h3>Fill it out</h3><p>Tell us about yourself, your availability, and your work history.</p></div>
+        <div class="step"><span class="roman">II.</span><h3>Send it in</h3><p>Submit online, or print it and drop it off at the restaurant.</p></div>
+        <div class="step"><span class="roman">III.</span><h3>Meet the team</h3><p>If it's a fit, we'll reach out to set up a time to talk.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="apply">
+    <div class="container">
+      <div class="app-wrap">
+
+        <form class="app-form" id="appForm" novalidate>
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;">
+          <div class="app-intro">
+            <div>
+              <span class="eyebrow">Employment Application</span>
+              <h2>Round Table Pizza — Lake Forest</h2>
+            </div>
+            <p class="req-note"><span class="req">*</span> Required</p>
+          </div>
+
+          <!-- A. PERSONAL INFORMATION -->
+          <fieldset>
+            <legend><span class="ltr">A.</span> Personal Information</legend>
+            <div class="f-grid">
+              <div class="field span-3" data-q="First name"><label for="firstName">First name <span class="req">*</span></label><input type="text" id="firstName" name="first_name" autocomplete="given-name" required></div>
+              <div class="field span-1" data-q="Middle initial"><label for="middleInitial">M.I.</label><input type="text" id="middleInitial" name="middle_initial" maxlength="1" autocomplete="additional-name"></div>
+              <div class="field span-2" data-q="Last name"><label for="lastName">Last name <span class="req">*</span></label><input type="text" id="lastName" name="last_name" autocomplete="family-name" required></div>
+
+              <div class="field span-6" data-q="Address"><label for="address">Address</label><input type="text" id="address" name="address" autocomplete="street-address"></div>
+              <div class="field span-3" data-q="City"><label for="city">City</label><input type="text" id="city" name="city" autocomplete="address-level2"></div>
+              <div class="field span-1" data-q="State"><label for="state">State</label><input type="text" id="state" name="state" value="CA" maxlength="2" autocomplete="address-level1"></div>
+              <div class="field span-2" data-q="Zip"><label for="zip">Zip</label><input type="text" id="zip" name="zip" inputmode="numeric" maxlength="10" autocomplete="postal-code"></div>
+
+              <div class="field span-3" data-q="Phone"><label for="phone">Phone <span class="req">*</span></label><input type="tel" id="phone" name="phone" autocomplete="tel" required></div>
+              <div class="field span-3" data-q="Email"><label for="email">Email <span class="req">*</span></label><input type="email" id="email" name="email" autocomplete="email" required></div>
+
+              <div class="field span-2" data-q="Position title"><label for="position">Position title <span class="req">*</span></label><input type="text" id="position" name="position_title" required></div>
+              <div class="field span-2" data-q="Projected start date"><label for="startDate">Projected start date</label><input type="date" id="startDate" name="projected_start_date"></div>
+              <div class="field span-2" data-q="What hours can you work?"><label for="hoursAvail">What hours can you work?</label><input type="text" id="hoursAvail" name="hours_available" placeholder="e.g., 4 p.m. – close"></div>
+
+              <div class="field span-4" data-q="What days are you available to work?">
+                <span class="q">What days are you available to work?</span>
+                <div class="choice-row">
+                  <label class="chip"><input type="checkbox" name="days_available" value="Mon"><span>Mon</span></label>
+                  <label class="chip"><input type="checkbox" name="days_available" value="Tue"><span>Tue</span></label>
+                  <label class="chip"><input type="checkbox" name="days_available" value="Wed"><span>Wed</span></label>
+                  <label class="chip"><input type="checkbox" name="days_available" value="Thu"><span>Thu</span></label>
+                  <label class="chip"><input type="checkbox" name="days_available" value="Fri"><span>Fri</span></label>
+                  <label class="chip"><input type="checkbox" name="days_available" value="Sat"><span>Sat</span></label>
+                  <label class="chip"><input type="checkbox" name="days_available" value="Sun"><span>Sun</span></label>
+                </div>
+              </div>
+              <div class="field span-2" data-q="Number of hours you wish to work weekly"><label for="weeklyHours">Hours you wish to work weekly</label><input type="number" id="weeklyHours" name="weekly_hours" min="1" max="60"></div>
+            </div>
+          </fieldset>
+
+          <!-- B. EDUCATIONAL BACKGROUND -->
+          <fieldset>
+            <legend><span class="ltr">B.</span> Educational Background</legend>
+            <div class="f-grid">
+              <div class="field span-3" data-q="Name of school"><label for="school">Name of school</label><input type="text" id="school" name="school_name"></div>
+              <div class="field span-3" data-q="Location"><label for="schoolLoc">Location</label><input type="text" id="schoolLoc" name="school_location"></div>
+              <div class="field span-3" data-q="Diploma / degree earned"><label for="degree">Diploma / degree earned</label><input type="text" id="degree" name="degree"></div>
+              <div class="field span-3" data-q="Major / area of study"><label for="major">Major / area of study</label><input type="text" id="major" name="major"></div>
+            </div>
+          </fieldset>
+
+          <!-- C. RESTAURANT / GENERAL EXPERIENCE & BACKGROUND -->
+          <fieldset>
+            <legend><span class="ltr">C.</span> Restaurant / General Experience &amp; Background</legend>
+            <div class="f-grid">
+              <div class="field span-3" data-q="Do you have previous pizza or restaurant experience?">
+                <span class="q">Do you have previous pizza or restaurant experience?</span>
+                <div class="choice-row">
+                  <label class="chip"><input type="radio" name="restaurant_experience" value="Yes" data-toggle="expWhere"><span>Yes</span></label>
+                  <label class="chip"><input type="radio" name="restaurant_experience" value="No" data-toggle="expWhere"><span>No</span></label>
+                </div>
+              </div>
+              <div class="field span-3" data-q="Where?" id="expWhere" data-show-when="Yes" hidden><label for="expWhereInput">Where?</label><input type="text" id="expWhereInput" name="restaurant_experience_where"></div>
+
+              <div class="field span-6" data-q="Why are you applying to Round Table Pizza?"><label for="why">Why are you applying to Round Table Pizza?</label><textarea id="why" name="why_round_table"></textarea></div>
+
+              <div class="field span-3" data-q="Are you at least 18 years of age?">
+                <span class="q">Are you at least 18 years of age? <span class="req">*</span></span>
+                <div class="choice-row" data-required>
+                  <label class="chip"><input type="radio" name="at_least_18" value="Yes" required><span>Yes</span></label>
+                  <label class="chip"><input type="radio" name="at_least_18" value="No"><span>No</span></label>
+                </div>
+              </div>
+              <div class="field span-3" data-q="If hired, can you present evidence of your US citizenship or proof of your legal right to live & work in the country?">
+                <span class="q">If hired, can you present evidence of your US citizenship or proof of your legal right to live &amp; work in the country? <span class="req">*</span></span>
+                <div class="choice-row" data-required>
+                  <label class="chip"><input type="radio" name="work_authorization" value="Yes" required><span>Yes</span></label>
+                  <label class="chip"><input type="radio" name="work_authorization" value="No"><span>No</span></label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- D. WORK HISTORY -->
+          <fieldset>
+            <legend><span class="ltr">D.</span> Work History</legend>
+            <div class="f-grid">
+              <div class="job">
+                <p class="job-h">Employer 1 · most recent</p>
+                <div class="f-grid">
+                  <div class="field span-3" data-q="Company name"><label for="j1Company">Company name</label><input type="text" id="j1Company" name="job1_company"></div>
+                  <div class="field span-3" data-q="Position held"><label for="j1Position">Position held</label><input type="text" id="j1Position" name="job1_position"></div>
+                  <div class="field span-6" data-q="Dates of employment"><label for="j1Dates">Dates of employment</label><input type="text" id="j1Dates" name="job1_dates" placeholder="e.g., 06/2023 – 08/2025"></div>
+                  <div class="field span-3" data-q="Supervisor name / contact info"><label for="j1Sup">Supervisor name / contact info</label><input type="text" id="j1Sup" name="job1_supervisor"></div>
+                  <div class="field span-3" data-q="Reason for leaving"><label for="j1Reason">Reason for leaving</label><input type="text" id="j1Reason" name="job1_reason_for_leaving"></div>
+                </div>
+              </div>
+              <div class="job">
+                <p class="job-h">Employer 2</p>
+                <div class="f-grid">
+                  <div class="field span-3" data-q="Company name"><label for="j2Company">Company name</label><input type="text" id="j2Company" name="job2_company"></div>
+                  <div class="field span-3" data-q="Position held"><label for="j2Position">Position held</label><input type="text" id="j2Position" name="job2_position"></div>
+                  <div class="field span-6" data-q="Dates of employment"><label for="j2Dates">Dates of employment</label><input type="text" id="j2Dates" name="job2_dates" placeholder="e.g., 06/2023 – 08/2025"></div>
+                  <div class="field span-3" data-q="Supervisor name / contact info"><label for="j2Sup">Supervisor name / contact info</label><input type="text" id="j2Sup" name="job2_supervisor"></div>
+                  <div class="field span-3" data-q="Reason for leaving"><label for="j2Reason">Reason for leaving</label><input type="text" id="j2Reason" name="job2_reason_for_leaving"></div>
+                </div>
+              </div>
+              <div class="job">
+                <p class="job-h">Employer 3</p>
+                <div class="f-grid">
+                  <div class="field span-3" data-q="Company name"><label for="j3Company">Company name</label><input type="text" id="j3Company" name="job3_company"></div>
+                  <div class="field span-3" data-q="Position held"><label for="j3Position">Position held</label><input type="text" id="j3Position" name="job3_position"></div>
+                  <div class="field span-6" data-q="Dates of employment"><label for="j3Dates">Dates of employment</label><input type="text" id="j3Dates" name="job3_dates" placeholder="e.g., 06/2023 – 08/2025"></div>
+                  <div class="field span-3" data-q="Supervisor name / contact info"><label for="j3Sup">Supervisor name / contact info</label><input type="text" id="j3Sup" name="job3_supervisor"></div>
+                  <div class="field span-3" data-q="Reason for leaving"><label for="j3Reason">Reason for leaving</label><input type="text" id="j3Reason" name="job3_reason_for_leaving"></div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- E. CONFIRMATION -->
+          <fieldset>
+            <legend><span class="ltr">E.</span> Confirmation</legend>
+            <div class="f-grid">
+              <div class="field span-6" data-q="Are you able to perform the essential functions & all other duties of the job for which you're applying?">
+                <span class="q">Are you able to perform the essential functions &amp; all other duties of the job for which you're applying? <span class="req">*</span></span>
+                <div class="choice-row" data-required>
+                  <label class="chip"><input type="radio" name="can_perform_duties" value="Yes" data-toggle="dutiesDetail" required><span>Yes</span></label>
+                  <label class="chip"><input type="radio" name="can_perform_duties" value="No" data-toggle="dutiesDetail"><span>No</span></label>
+                </div>
+              </div>
+              <div class="field span-6" data-q="If no, describe the duties & functions you cannot perform" id="dutiesDetail" data-show-when="No" hidden>
+                <label for="dutiesText">If no, describe the duties &amp; functions you cannot perform.</label>
+                <textarea id="dutiesText" name="duties_cannot_perform"></textarea>
+              </div>
+              <div class="field span-2" data-q="Today's date"><label for="todayDate">Today's date <span class="req">*</span></label><input type="date" id="todayDate" name="todays_date" required></div>
+              <div class="field span-4" data-q="Applicant's signature"><label for="signature">Applicant's signature <span class="req">*</span> <span class="hint">— type your full legal name</span></label><input type="text" id="signature" name="applicant_signature" autocomplete="name" required style="font-family:'Fraunces',serif; font-style:italic; font-size:1.1rem;"></div>
+            </div>
+          </fieldset>
+
+          <div class="app-actions">
+            <button type="submit" class="btn btn-gold btn-lg" id="submitBtn">Submit Application</button>
+            <span class="form-error" id="formError" role="alert"></span>
+          </div>
+        </form>
+
+        <div class="app-done" id="appDone" hidden>
+          <span class="eyebrow">Application Complete</span>
+          <h2 id="doneTitle">Thank you!</h2>
+          <p id="doneMsg"></p>
+          <div class="hero-ctas">
+            <button type="button" class="btn btn-gold btn-lg" id="printBtn">Print / Save as PDF</button>
+            <button type="button" class="btn btn-outline btn-lg" id="newAppBtn">Start a New Application</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="printSummary" aria-hidden="true"></div>
+
 <footer>
   <div class="container">
     <div class="footer-top">
@@ -754,6 +1033,11 @@
           <h4>Order</h4>
           <a href="https://ordering.roundtablepizza.com/Site/lake-forest-lambert-st/Menu#menu" target="_blank" rel="noopener">Pickup &amp; Delivery</a>
           <a href="tel:+19498598888">Call the Restaurant</a>
+        </div>
+        <div class="footer-col">
+          <h4>Join Us</h4>
+          <a href="#careers">Careers</a>
+          <a href="#apply">Apply Online</a>
         </div>
       </div>
     </div>
@@ -790,6 +1074,169 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ===== Careers page ===== */
+  // To receive applications online, paste a form endpoint here (e.g. a Formspree,
+  // Basin, or Google Apps Script URL). Leave blank to use print / drop-off only.
+  const APPLICATION_ENDPOINT = 'https://formsubmit.co/ajax/roundtable1394@gmail.com';
+
+  const homeView = document.getElementById('top');
+  const careersView = document.getElementById('careers');
+  const baseTitle = document.title;
+  const careerLinks = document.querySelectorAll('a[href="#careers"]');
+
+  function route(){
+    const h = location.hash;
+    const onCareers = h === '#careers' || h === '#apply';
+    const wasCareers = !careersView.hidden;
+    homeView.hidden = onCareers;
+    careersView.hidden = !onCareers;
+    document.title = onCareers ? 'Careers — Round Table Pizza, Lake Forest' : baseTitle;
+    careerLinks.forEach(a => a.classList.toggle('active', onCareers));
+    const target = h && h.length > 1 ? document.getElementById(h.slice(1)) : null;
+    if (h === '#careers' || (!target && wasCareers !== onCareers)) {
+      window.scrollTo(0, 0);
+    } else if (target) {
+      requestAnimationFrame(() => {
+        const y = target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight;
+        window.scrollTo(0, Math.max(0, y));
+      });
+    }
+    if (onCareers) careersView.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+  window.addEventListener('hashchange', route);
+  route();
+
+  const appForm = document.getElementById('appForm');
+  const appDone = document.getElementById('appDone');
+  const formError = document.getElementById('formError');
+  const submitBtn = document.getElementById('submitBtn');
+  const todayInput = document.getElementById('todayDate');
+  const setToday = () => {
+    const d = new Date();
+    todayInput.value = new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  };
+  setToday();
+
+  // Show follow-up questions only when relevant (e.g. "If yes...")
+  appForm.querySelectorAll('input[data-toggle]').forEach(input => {
+    input.addEventListener('change', () => {
+      const box = document.getElementById(input.dataset.toggle);
+      const show = input.checked && input.value === box.dataset.showWhen;
+      box.hidden = !show;
+      if (!show) box.querySelectorAll('input, textarea').forEach(el => el.value = '');
+    });
+  });
+
+  function fieldValue(field){
+    const checked = [...field.querySelectorAll('input[type=radio], input[type=checkbox]')].filter(i => i.checked).map(i => i.value);
+    if (field.querySelector('input[type=radio], input[type=checkbox]')) return checked.join(', ');
+    const el = field.querySelector('input, textarea');
+    return el ? el.value.trim() : '';
+  }
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  function buildSummary(){
+    let html = '<h1>Round Table Pizza — Lake Forest</h1><p>Employment Application · 22722 Lambert Street, Lake Forest, CA 92630 · (949) 859-8888</p>';
+    appForm.querySelectorAll('fieldset').forEach(fs => {
+      html += '<h2>' + esc(fs.querySelector('legend').textContent) + '</h2>';
+      let rows = '';
+      fs.querySelectorAll('.job-h, .field, .legal-note').forEach(el => {
+        if (el.classList.contains('job-h')) {
+          if (rows) { html += '<table>' + rows + '</table>'; rows = ''; }
+          html += '<h3>' + esc(el.textContent) + '</h3>';
+        } else if (el.classList.contains('legal-note')) {
+          if (rows) { html += '<table>' + rows + '</table>'; rows = ''; }
+          html += '<p><em>' + esc(el.textContent) + '</em></p>';
+        } else if (!el.hidden) {
+          rows += '<tr><td>' + esc(el.dataset.q) + '</td><td>' + (esc(fieldValue(el)) || '&nbsp;') + '</td></tr>';
+        }
+      });
+      if (rows) html += '<table>' + rows + '</table>';
+    });
+    document.getElementById('printSummary').innerHTML = html;
+  }
+
+  function validate(){
+    appForm.classList.add('was-validated');
+    let ok = appForm.checkValidity();
+    appForm.querySelectorAll('.choice-row[data-required]').forEach(row => {
+      const answered = !!row.querySelector('input:checked');
+      row.classList.toggle('invalid', !answered);
+    });
+    if (!ok) {
+      const first = appForm.querySelector(':invalid');
+      formError.textContent = 'Please complete the required fields marked with *.';
+      if (first) {
+        const y = first.getBoundingClientRect().top + window.scrollY - nav.offsetHeight - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        setTimeout(() => first.focus({ preventScroll: true }), 350);
+      }
+    } else {
+      formError.textContent = '';
+    }
+    return ok;
+  }
+
+  appForm.addEventListener('change', () => {
+    if (appForm.classList.contains('was-validated')) {
+      appForm.querySelectorAll('.choice-row[data-required]').forEach(row => row.classList.toggle('invalid', !row.querySelector('input:checked')));
+    }
+  });
+
+  function showDone(sent){
+    const name = document.getElementById('firstName').value.trim();
+    document.getElementById('doneTitle').textContent = 'Thank you' + (name ? ', ' + name : '') + '!';
+    document.getElementById('doneMsg').textContent = sent
+      ? "Your application has been sent to our Lake Forest team. We'll reach out if it's a match. You can also print or save a copy for your records."
+      : 'Your application is ready. Print it (or save it as a PDF) and bring it to the restaurant at 22722 Lambert Street, Lake Forest — or call us at (949) 859-8888.';
+    appForm.hidden = true;
+    appDone.hidden = false;
+    const y = appDone.getBoundingClientRect().top + window.scrollY - nav.offsetHeight - 40;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  appForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+    buildSummary();
+    if (!APPLICATION_ENDPOINT) { showDone(false); return; }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    try {
+      const data = new FormData(appForm);
+      data.set('days_available', data.getAll('days_available').join(', '));
+      if (data.get('_honey')) { showDone(true); return; }
+      const who = [data.get('first_name'), data.get('last_name')].join(' ').trim();
+      data.set('_subject', 'Job Application: ' + who + ' — ' + (data.get('position_title') || 'Round Table Pizza Lake Forest'));
+      data.set('_replyto', data.get('email') || '');
+      data.set('_template', 'table');
+      data.set('_captcha', 'false');
+      const res = await fetch(APPLICATION_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (!res.ok) throw new Error(res.status);
+      showDone(true);
+    } catch (err) {
+      formError.textContent = "We couldn't send your application just now. Please try again, or call us at (949) 859-8888.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Application';
+    }
+  });
+
+  document.getElementById('printBtn').addEventListener('click', () => { buildSummary(); window.print(); });
+  document.getElementById('newAppBtn').addEventListener('click', () => {
+    appForm.reset();
+    appForm.classList.remove('was-validated');
+    appForm.querySelectorAll('[data-show-when]').forEach(b => b.hidden = true);
+    appForm.querySelectorAll('.choice-row').forEach(r => r.classList.remove('invalid'));
+    formError.textContent = '';
+    setToday();
+    appDone.hidden = true;
+    appForm.hidden = false;
+    location.hash = '#apply';
+    route();
+  });
 </script>
 
 </body>
