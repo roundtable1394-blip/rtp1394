@@ -1197,27 +1197,74 @@
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
 
+  const EMAIL_TO = 'roundtable1394@gmail.com';
+
+  function emailFields(data){
+    const who = [data.get('first_name'), data.get('last_name')].join(' ').trim();
+    return {
+      _subject: 'Job Application: ' + who + ' — ' + (data.get('position_title') || 'Round Table Pizza Lake Forest'),
+      _replyto: data.get('email') || '',
+      _template: 'table',
+      _captcha: 'false'
+    };
+  }
+
+  // Fallback: a regular (full-page) form post to FormSubmit, which avoids any
+  // browser/CORS problems. FormSubmit sends the applicant back here afterwards.
+  function nativeSubmit(extra){
+    const back = location.href.split('#')[0].split('?')[0] + '?applied=1#careers';
+    const add = { ...extra, _next: back };
+    appForm.querySelectorAll('input[data-temp]').forEach(i => i.remove());
+    Object.entries(add).forEach(([k, v]) => {
+      const i = document.createElement('input');
+      i.type = 'hidden'; i.name = k; i.value = v; i.dataset.temp = '1';
+      appForm.appendChild(i);
+    });
+    appForm.action = 'https://formsubmit.co/' + EMAIL_TO;
+    appForm.method = 'POST';
+    HTMLFormElement.prototype.submit.call(appForm);
+  }
+
+  if (new URLSearchParams(location.search).get('applied') === '1') {
+    history.replaceState(null, '', location.pathname + '#careers');
+    route();
+    showDone(true);
+  }
+
   appForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!validate()) return;
     buildSummary();
     if (!APPLICATION_ENDPOINT) { showDone(false); return; }
+    const data = new FormData(appForm);
+    if (data.get('_honey')) { showDone(true); return; }
+    const extra = emailFields(data);
+    const payload = {};
+    for (const [k, v] of data.entries()) { if (k !== '_honey' && k !== 'days_available') payload[k] = v; }
+    payload.days_available = data.getAll('days_available').join(', ');
+    Object.assign(payload, extra);
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
+    formError.textContent = '';
     try {
-      const data = new FormData(appForm);
-      data.set('days_available', data.getAll('days_available').join(', '));
-      if (data.get('_honey')) { showDone(true); return; }
-      const who = [data.get('first_name'), data.get('last_name')].join(' ').trim();
-      data.set('_subject', 'Job Application: ' + who + ' — ' + (data.get('position_title') || 'Round Table Pizza Lake Forest'));
-      data.set('_replyto', data.get('email') || '');
-      data.set('_template', 'table');
-      data.set('_captcha', 'false');
-      const res = await fetch(APPLICATION_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-      if (!res.ok) throw new Error(res.status);
-      showDone(true);
+      const res = await fetch(APPLICATION_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      let json = {};
+      try { json = await res.json(); } catch (_) {}
+      if (res.ok && String(json.success) === 'true') {
+        showDone(true);
+      } else if (json.message && /activat/i.test(json.message)) {
+        // One-time setup: FormSubmit is waiting for the inbox owner to click its activation email.
+        formError.textContent = 'Setup needed: ' + json.message;
+      } else {
+        nativeSubmit(extra);
+      }
     } catch (err) {
-      formError.textContent = "We couldn't send your application just now. Please try again, or call us at (949) 859-8888.";
+      nativeSubmit(extra);
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Submit Application';
